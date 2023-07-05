@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>게시판</h1>
+<a href="{% url 'dashboards:create' %}">글쓰기</a>
+<ul>
+{% for dashboard in dashboards %}
+    <li>
+        <p>{{ dashboard.title }} | {{ dashboard.content }} | {{ dashboard.created_at }}</p>
+        <a href="{% url 'dashboards:detail' dashboard.pk %}">상세보기</a>
+        <a href="{% url 'dashboards:delete' dashboard.pk %}">삭제하기</a>
+        <a href="{% url 'dashboards:update' dashboard.pk %}">수정하기</a>
+        <hr>
+    </li>
+{% endfor %}
+
+</ul>
+{% endblock %}

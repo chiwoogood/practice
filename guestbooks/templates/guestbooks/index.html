@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>글을 작성해주세요.</h1>
+<form action="{% url 'guestbooks:create' %}" method="Post">
+    {% csrf_token %}
+    <input type="text" name ="content">
+    <input type="submit">
+</form>
+{% for content in guestbook %}
+<p>{{ content.content }}</p>
+{% endfor %}
+{% endblock %}

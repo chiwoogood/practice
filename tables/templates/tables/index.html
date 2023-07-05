@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<H1>게시판입니다.</H1>
+<form action="{% url 'tables:create' %}" method="POST">
+    {% csrf_token %}
+    {{ tableForm.as_p }}
+    <input type="submit">
+</form>
+{% endblock %}

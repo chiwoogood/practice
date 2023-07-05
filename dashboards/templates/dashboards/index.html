@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+{% load static %}
+<div class="container my-5"><h1>글쓰기</h1></div>
+<div class="container my-5">
+    <form action="{% url 'dashboards:create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ dashboardForm.as_p }}
+        <input type="submit">
+    </form>
+</div>
+{% endblock %}
+
